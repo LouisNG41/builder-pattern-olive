@@ -10,28 +10,24 @@ public class UserBuilder {
     private boolean verified;
     private Address address;
 
-    public UserBuilder withName(String name) {
-        this.name = name;
+    public UserBuilder ageMinor() {
+        this.age = 16;
         return this;
     }
 
-    public UserBuilder withEmail(String email) {
-        this.email = email;
+    public UserBuilder notVerified() {
+        this.verified = false;
         return this;
     }
 
-    public UserBuilder withAge(int age) {
-        this.age = age;
-        return this;
-    }
-
-    public UserBuilder withVerified(boolean verified) {
-        this.verified = verified;
-        return this;
-    }
-
-    public UserBuilder withAddress(Address address) {
-        this.address = address;
+    public UserBuilder foreignAddress() {
+        this.address = new Address(
+                "33 quai d'Orsay",
+                "",
+                "Paris",
+                "75007",
+                "France"
+        );
         return this;
     }
 
@@ -39,7 +35,7 @@ public class UserBuilder {
         return new User(name, email, age, verified, address);
     }
 
-    public UserBuilder withTestValues(){
+    public UserBuilder defaultValues(){
         Address fsfAddress = new Address(
                 "51 Franklin Street",
                 "Fifth Floor",
